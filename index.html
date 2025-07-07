@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strive Consulting - College Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4a4a4a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #6c757d;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #4a4a4a, #2c2c2c);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(74, 74, 74, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.9));
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 2rem 0;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #2c2c2c;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(44, 44, 44, 0.1);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #4a4a4a;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 0.3px;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin: 2rem 0;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(44, 44, 44, 0.1);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2c2c2c;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            font-weight: 400;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #4a4a4a;
+            letter-spacing: 0.2px;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #5a5a5a, #404040);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(90, 90, 90, 0.3);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(90, 90, 90, 0.25);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 500;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Services Section */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #6c757d;
+            border: 1px solid rgba(108, 117, 125, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: #2c2c2c;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.3px;
+        }
+
+        .service-card p {
+            color: #4a4a4a;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.6;
+            letter-spacing: 0.2px;
+        }
+
+        /* Awards Section */
+        .awards {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            border: 1px solid rgba(108, 117, 125, 0.2);
+        }
+
+        .awards h3 {
+            color: #4a4a4a;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .awards-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .award-tag {
+            background: linear-gradient(45deg, #4a4a4a, #2c2c2c);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #4a4a4a, #2c2c2c);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 1px solid rgba(108, 117, 125, 0.3);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            background: rgba(255, 255, 255, 0.95);
+            color: #2c2c2c;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #6c757d;
+            box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.1);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #6c757d;
+            font-weight: 400;
+        }
+
+        .contact-form button {
+            background: white;
+            color: #4a4a4a;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(44, 44, 44, 0.1);
+            color: #6c757d;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .main-content {
+                padding: 2rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Strive Consulting</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Your College Dreams, Our Expertise</h1>
+            <p>We're a team of college consultants who know the ins and outs of the college application process.</p>
+            <a href="#contact" class="cta-button">Schedule Consultation</a>
+        </section>
+
+        <main class="main-content">
+            <section class="section" id="about">
+                <h2>Crafting Your Success Story</h2>
+                <p>Having strong awards, extracurriculars, and accolades to back up your high school journey is important—but not enough. Every part of your application should weave together a cohesive narrative—something our counselors will help you craft.</p>
+                <p>Following a structured roadmap and timeline prior to and during your application cycle can help you stay on top of the busy college application season, making the process much more seamless. Our counselors will help you create a personalized timeline to ensure you stay on track and meet all deadlines.</p>
+                <p>Looking at yourself through a set of fresh eyes can help your application stand out and refine your distinctive addition to the university.</p>
+            </section>
+
+            <section class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">1570</div>
+                    <div class="stat-label">Average SAT Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">36</div>
+                    <div class="stat-label">Average ACT Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4.0</div>
+                    <div class="stat-label">Average GPA</div>
+                </div>
+            </section>
+
+            <section class="section" id="team">
+                <h2>Our Achievement Record</h2>
+                <p>Our team has an average 1570 SAT, 36 ACT, and 4.0 GPA. We can help you excel in college applications while maintaining perfect scores and academics to remain competitive in all aspects.</p>
+                
+                <div class="awards">
+                    <h3>Awards & Recognition</h3>
+                    <div class="awards-list">
+                        <span class="award-tag">RISE Fellowship</span>
+                        <span class="award-tag">Regeneron ISEF Grand Awards</span>
+                        <span class="award-tag">U.S. Senate Youth Program</span>
+                        <span class="award-tag">Coca-Cola Scholarship</span>
+                        <span class="award-tag">National Merit Scholarship</span>
+                        <span class="award-tag">Duke University Full-Ride</span>
+                        <span class="award-tag">University of Oxford Scholarship</span>
+                    </div>
+                </div>
+                
+                <p>From top scholarships to international science and humanities competitions and conferences, our team has accumulated dozens of awards in their respective fields. Our team has obtained multiple full-ride merit scholarships to institutions including Duke University and the University of Oxford.</p>
+            </section>
+
+            <section class="section" id="services">
+                <h2>Our Services</h2>
+                <div class="services">
+                    <div class="service-card">
+                        <h3>Personal Consultation</h3>
+                        <p>Get on a call with one of our highly-qualified consultants for guidance through the college application process—from choosing the right schools to crafting compelling essays.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Personalized Roadmap</h3>
+                        <p>We will help you create a personalized roadmap for your high school journey, ensuring you stay on track to meet your college goals.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Essay & Application Review</h3>
+                        <p>Our counselors will edit your college essays and application to ensure they are compelling and authentic, helping you stand out in the admissions process.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <section class="contact" id="contact">
+            <h2>Ready to Start Your Journey?</h2>
+            <p>Let's discuss how we can help you achieve your college dreams</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Your Phone Number">
+                <textarea placeholder="Tell us about your college goals..." rows="4"></textarea>
+                <button type="submit">Schedule Free Consultation</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Strive Consulting. All rights reserved. | Empowering students to achieve their college dreams.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you soon to schedule your consultation.');
+            this.reset();
+        });
+
+        // Add scroll animation to sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section, .stat-card, .service-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const navLinks = document.querySelector('.nav-links');
+        const logo = document.querySelector('.logo');
+        
+        // Add mobile menu button for smaller screens
+        if (window.innerWidth <= 768) {
+            const menuButton = document.createElement('button');
+            menuButton.innerHTML = '☰';
+            menuButton.style.cssText = `
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: #2c2c2c;
+                cursor: pointer;
+                display: block;
+            `;
+            
+            menuButton.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'white';
+                navLinks.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                navLinks.style.padding = '1rem';
+            });
+            
+            document.querySelector('nav').appendChild(menuButton);
+        }
+    </script>
+</body>
+</html>
