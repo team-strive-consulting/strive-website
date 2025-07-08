@@ -693,6 +693,47 @@
         color: #555;
       }
 
+/* Section background and text */
+#team {
+  color: #fff;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+/* Team list layout */
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Team card styles */
+.team-card {
+  background: linear-gradient(to bottom right, #1c1c1c, #2a2a2a);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: left;
+}
+
+.team-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.team-card h5 {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.team-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
       /* Container */
       .form-container {
         max-width: 600px;
@@ -1067,11 +1108,12 @@
                   <div class="flip-card-inner">
                     <div class="flip-card-front">
                       <h3>Essay Review</h3>
-                      <p>A deep dive into your draft’s strengths and weaknesses</p>
+                      <p>We provide honest, detailed feedback to sharpen your voice and make your story stand out</p>
                     </div>
                     <div class="flip-card-back">
                       <h3>Essay Review</h3>
-                      <p>$149 per essay</p>
+                      <p>Common App - $60</p>
+                      <p>Suppelementals - 10¢ / WORD</p>
                       <p>48-hour turnaround</p>
                     </div>
                   </div>
@@ -1080,13 +1122,27 @@
                 <div class="flip-card">
                   <div class="flip-card-inner">
                     <div class="flip-card-front">
-                      <h3>College List</h3>
-                      <p>A brutally honest review of where you should apply</p>
+                      <h3>Target School Selection</h3>
+                      <p>We formulate a personalized school list based on your goals, interests, and profile</p>
                     </div>
                     <div class="flip-card-back">
                       <h3>College List</h3>
-                      <p>$99 flat rate</p>
-                      <p>Includes reach/match/safety tiers</p>
+                      <p>$15 flat rate</p>
+                      <p>Includes suggested reach/target/safety tiers with early and regular round distributions</p>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <h3>Full Application Reviews</h3>
+                      <p>We help organize your activities, write strong descriptions, and polish every little section of your application for maximum impact.</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <h3>Application Review</h3>
+                      <p>$100 per school on list</p>
+                      <p>UC application counts as a single school</p>
                     </div>
                   </div>
                 </div>
@@ -1095,27 +1151,28 @@
 
         <section class="section" id="team">
           <h2>Our Team</h2>
-          <div class="services">
-            <div class="service-card">
+          <div class="team-list">
+            <div class="team-card">
               <h3>Jacob Chen</h3>
-              <p>
-                Stanford University - Biology
-              </p>
+              <h5>Stanford University – Biology</h5>
+              <p>Jacob is a published author, researcher, and athlete with a passion for both science and the arts. He’s done significant marine biology research, represented his high school in the National Chemistry Olympiad, played cello in a youth orchestra, and been a committed water polo player.</p>
             </div>
-            <div class="service-card">
+        
+            <div class="team-card">
               <h3>Daniel Goo</h3>
-              <p>
-                Princeton University - Molecular Biology
-              </p>
+              <h5>Princeton University – Molecular Biology</h5>
+              <p>A passionate student with a love for both science and the arts, Daniel has placed nationally in USABO and AMC, attended BU RISE, and earned All-State honors in music. He helps students bring out the depth and personality in their applications.</p>
             </div>
-            <div class="service-card">
+        
+            <div class="team-card">
               <h3>Dylan Wang</h3>
-              <p>
-                Harvard University - Computer Science
-              </p>
+              <h5>Harvard University – Computer Science</h5>
+              <p>Dylan's background includes USACO, AMC, and research projects, along with a portfolio of visual art and tech-based passion projects supporting communities in Africa. He’s all about helping others bring bold, original work to life.</p>
             </div>
           </div>
         </section>
+        
+        
       </main>
 
 
@@ -1237,6 +1294,32 @@
 
         document.querySelector("nav").appendChild(menuButton);
       }
-    </script>
+      const cards = document.querySelectorAll('.team-card');
+      let currentIndex = 0;
+
+      function showCard(index) {
+        cards.forEach((card, i) => {
+          card.classList.toggle('active', i === index);
+        });
+      }
+
+      function nextCard() {
+        currentIndex = (currentIndex + 1) % cards.length;
+        showCard(currentIndex);
+      }
+
+      function prevCard() {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        showCard(currentIndex);
+      }
+
+      // Auto-play every 5 seconds
+      setInterval(() => {
+        nextCard();
+      }, 5000);
+
+      // Initialize
+      showCard(currentIndex);
+      </script>
   </body>
 </html>
