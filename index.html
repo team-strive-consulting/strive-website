@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Strive - College Consulting</title>
+    <title>Total Admit - College Consulting</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -147,12 +147,6 @@
         color: #ffffff;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      @media (max-width: 768px) {
-        .hero {
-          font-size: 1.8rem; /* smaller font for tablets and phones */
-        }
       }
 
       #type-text {
@@ -599,43 +593,11 @@
         font-family: "Inter", sans-serif;
       }
 
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-        }
-
-        .hero h1,
-        .hero h2.brand-text {
-          font-size: 2.5rem;
-        }
-
-        .hero p {
-          font-size: 1.1rem;
-        }
-
-        .main-content {
-          padding: 2rem;
-        }
-
-        .stats {
-          grid-template-columns: 1fr;
-        }
-
-        .services {
-          grid-template-columns: 1fr;
-        }
-
-        .slider-item {
-          margin: 0 1rem;
-          font-size: 1.2rem;
-        }
-      }
       @media (max-width: 768px) {
         /* Shrink headings and hero text for mobile */
         .hero h1,
-        .hero h2.brand-text {
-          font-size: 2.5rem;
+        .hero h2.brand-text, {
+          font-size: 1rem;
           line-height: 1.3;
         }
 
@@ -718,6 +680,116 @@
         }
       }
 
+      /* General layout */
+      .form-section {
+        padding: 4rem 2rem;
+        border-radius: 1rem;
+        background-color: #f9f9f9;
+        text-align: center;
+      }
+
+      .form-section h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: #1a1a1a;
+      }
+
+      .form-section p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        color: #555;
+      }
+
+      /* Container */
+      .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        text-align: left;
+      }
+
+      .form-container h3 {
+        margin-bottom: 1.5rem;
+        color: #222;
+      }
+
+      /* Inputs */
+      #contact-form label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #333;
+      }
+
+      #contact-form input,
+      #contact-form textarea {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      #contact-form input:focus,
+      #contact-form textarea:focus {
+        outline: none;
+        border-color: #1a1a1a;
+      }
+
+      /* Button */
+      #contact-form button {
+        background-color: #1a1a1a;
+        color: white;
+        padding: 0.75rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      #contact-form button:hover {
+        background-color: #242424;
+      }
+
+      /* Hidden spam trap */
+      .hidden {
+        display: none !important;
+      }
+
+      /* Responsive design */
+      @media (max-width: 500px) {
+        .form-container {
+          padding: 1.5rem;
+        }
+
+        .form-section h2 {
+          font-size: 1.5rem;
+        }
+      }
+
+      /* Ensure same font for all form inputs and textareas */
+      .form-container input,
+      .form-container textarea {
+        font-family: "Inter", sans-serif;  /* or specify a custom font like 'Inter', 'Roboto', etc. */
+        font-size: 1rem;
+        color: #333;
+      }
+
+      /* Match placeholder font styles */
+      .form-container input::placeholder,
+      .form-container textarea::placeholder {
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        color: #333;  /* placeholder color */
+        opacity: 1;   /* fix for Firefox */
+      }
+
 
       /* Animations */
       @keyframes fadeInUp {
@@ -756,6 +828,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services & Pricing</a></li>
           <li><a href="#team">Our Team</a></li>
+          <li><a href="#pricing">Pricing</a></li>
         </ul>
         <a href="#contact" class="cta-button">Free Consultation</a>
       </nav>
@@ -798,7 +871,7 @@
 
         <section class="stats">
           <div class="stat-card">
-            <div class="stat-number">1570</div>
+            <div class="stat-number">1580</div>
             <div class="stat-label">Average SAT Score</div>
           </div>
           <div class="stat-card">
@@ -1053,29 +1126,33 @@
         </section>
       </main>
 
-      <section class="contact" id="contact">
+
+      <section id="contact" class="form-section">
         <h2>Ready to Start Your Journey?</h2>
         <p>Let's discuss how we can help you achieve your college dreams</p>
-        <!--form class="contact-form">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea
-            placeholder="Tell us about your college goals..."
-            rows="4"
-          ></textarea>
-          <button type="submit">Schedule Free Consultation</button>
-        </form>
+        <div class="form-container">
+          <h2>Contact Us</h2>
+          <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
 
-        <form class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdsx4Lfh7x6RApk31Q1xjNH2n45hYENZPfYkhccOahvMk7Dnw/viewform?usp=header" method="POST" target="_blank">
-          <input name="entry.1102050305" type="text" placeholder="Your Name" required />
-          <input name="entry.1521250639" type="email" placeholder="Your Email" required />
-          <textarea name="entry.1653361722" placeholder="Tell us about your college goals..." rows="4"></textarea>
-          <button type="submit">Schedule Free Consultation</button>
-        </form-->
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdsx4Lfh7x6RApk31Q1xjNH2n45hYENZPfYkhccOahvMk7Dnw/viewform?embedded=true" width="480" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+              <!-- Replace with your Access Key -->
+              <input type="hidden" name="access_key" value="06e7ce4a-a923-4553-8daa-471934840ced">
+
+              <!-- Form Inputs. Each input must have a name="" attribute -->
+              <input type="text" name="name" placeholder = "Full name" required>
+              <input type="email" name="email" placeholder = "Email"required>
+              <textarea name="message" placeholder = "Tell us about your college goals..." required></textarea>
+
+              <!-- Honeypot Spam Protection -->
+              <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+              <!-- Custom Confirmation / Success Page -->
+              <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
+
+              <button type="submit">Submit Form</button>
+
+          </form>
+        </div>
       </section>
-
-      
     </div>
 
     <footer>
