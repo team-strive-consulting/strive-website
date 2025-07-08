@@ -87,6 +87,16 @@ window.addEventListener("DOMContentLoaded", () => {
     document.querySelector("nav").appendChild(menuButton);
     }
 
+    document.querySelectorAll('.flip-card').forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+    });
+
+    card.querySelectorAll('a, button').forEach(inner => {
+        inner.addEventListener('click', e => e.stopPropagation());
+    });
+    });
+        
 });
 
 window.addEventListener("DOMContentLoaded", () => {
