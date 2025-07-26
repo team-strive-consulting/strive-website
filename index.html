@@ -386,6 +386,45 @@
         }
       }
 
+      .acceptance-container {
+        text-align: center;
+        margin-top: 40px;
+      }
+    
+      .acceptance-columns {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        flex-wrap: wrap; /* allow wrapping for smaller screens */
+        text-align: left;
+      }
+    
+      .acceptance-column {
+        flex: 1 1 200px; /* allows shrinking/growing, min 200px */
+        min-width: 200px;
+      }
+    
+      .acceptance-column ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+    
+      @media (max-width: 768px) {
+        .acceptance-columns {
+          flex-direction: column;
+          align-items: center;
+      }
+    
+      .acceptance-column {
+        width: 100%;
+        text-align: center;
+      }
+    
+      .acceptance-column ul {
+        text-align: left;
+        display: inline-block;
+      }
+      
       /* Services Section */
       .services {
         display: grid;
@@ -1075,9 +1114,9 @@
               />
           </div>
 
-          <div style="text-align: center; margin-top: 40px;">
-            <div style="display: inline-block; text-align: left;">
-              <div style="display: flex; gap: 60px; justify-content: center;">
+          <div class="acceptance-container">
+            <div class="acceptance-columns">
+              <div class="acceptance-column">
                 <ul>
                   <li>Harvard University</li>
                   <li>Yale University</li>
@@ -1086,6 +1125,8 @@
                   <li>WashU</li>
                   <li>UC Berkeley</li>
                 </ul>
+              </div>
+              <div class="acceptance-column">
                 <ul>
                   <li>Stanford University</li>
                   <li>Columbia University</li>
@@ -1094,6 +1135,8 @@
                   <li>Emory University</li>
                   <li>UCLA</li>
                 </ul>
+              </div>
+              <div class="acceptance-column">
                 <ul>
                   <li>Princeton University</li>
                   <li>University of Pennsylvania</li>
